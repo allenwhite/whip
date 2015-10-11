@@ -15,7 +15,6 @@
             <string>Game-Over</string>
             <string>Game-Over</string>
             <string>Game-Over</string>
-            <string>Game-Over</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -143,10 +142,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOLD THE PHONE FACE UP TO START!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVb-74-Yk4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOLD THE PHONE FACE UP TO START!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="68" translatesAutoresizingMaskIntoConstraints="NO" id="qVb-74-Yk4">
                                 <rect key="frame" x="90" y="90" width="420" height="420"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="140"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="136"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -188,30 +187,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kik-lV-LCh">
-                                <rect key="frame" x="90" y="419" width="420" height="60"/>
+                            <button opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-0W-TxN">
+                                <rect key="frame" x="90" y="343" width="420" height="103"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="w9a-tm-MsD"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="63"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="SHARE TO TWTTR"/>
-                                <connections>
-                                    <action selector="shareToTwitterTapped:" destination="Cm0-Op-KvI" eventType="touchUpInside" id="pFX-xG-XxE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-0W-TxN">
-                                <rect key="frame" x="90" y="343" width="420" height="60"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="GUh-R4-cWk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="63"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="SHARE TO FB"/>
+                                <state key="normal" title="SHARE"/>
                                 <connections>
                                     <action selector="shareToFBTapped:" destination="Cm0-Op-KvI" eventType="touchUpInside" id="WTP-hj-VuS"/>
                                 </connections>
@@ -234,11 +216,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMK-PI-oyi">
-                                <rect key="frame" x="90" y="495" width="420" height="60"/>
+                                <rect key="frame" x="90" y="454" width="420" height="101"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="lr1-Jx-klJ"/>
+                                    <constraint firstAttribute="height" constant="101" id="lr1-Jx-klJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="63"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,21 +244,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tMK-PI-oyi" firstAttribute="top" secondItem="Sl5-0W-TxN" secondAttribute="bottom" constant="16" id="2Bv-ql-EWi"/>
+                            <constraint firstItem="tMK-PI-oyi" firstAttribute="height" secondItem="Sl5-0W-TxN" secondAttribute="height" id="2ch-xG-0yA"/>
                             <constraint firstItem="hAX-2p-SH3" firstAttribute="leading" secondItem="yf5-gu-vTF" secondAttribute="leading" constant="20" id="3BF-S1-BQU"/>
                             <constraint firstItem="Sl5-0W-TxN" firstAttribute="top" secondItem="hAX-2p-SH3" secondAttribute="bottom" constant="16" id="6Sq-An-Llo"/>
                             <constraint firstItem="e7e-Pf-nb6" firstAttribute="top" secondItem="JyN-PV-d4c" secondAttribute="bottom" constant="8" id="7Gz-o6-wNP"/>
-                            <constraint firstItem="tMK-PI-oyi" firstAttribute="top" secondItem="kik-lV-LCh" secondAttribute="bottom" constant="16" id="7PB-6k-10M"/>
                             <constraint firstItem="0l4-EJ-fJM" firstAttribute="top" secondItem="7He-Qe-s07" secondAttribute="bottom" id="B6O-cF-KA7"/>
-                            <constraint firstItem="kik-lV-LCh" firstAttribute="centerX" secondItem="7He-Qe-s07" secondAttribute="centerX" id="Fbn-eA-P7n"/>
                             <constraint firstItem="e7e-Pf-nb6" firstAttribute="leading" secondItem="yf5-gu-vTF" secondAttribute="leading" constant="20" id="Hiy-ne-R04"/>
                             <constraint firstItem="Sl5-0W-TxN" firstAttribute="centerX" secondItem="7He-Qe-s07" secondAttribute="centerX" id="JrH-wS-QGj"/>
                             <constraint firstItem="0l4-EJ-fJM" firstAttribute="top" secondItem="tMK-PI-oyi" secondAttribute="bottom" constant="45" id="OB4-bR-AHl"/>
                             <constraint firstItem="vn1-oS-sVs" firstAttribute="centerX" secondItem="7He-Qe-s07" secondAttribute="centerX" id="Shh-Vd-jbo"/>
-                            <constraint firstItem="kik-lV-LCh" firstAttribute="top" secondItem="Sl5-0W-TxN" secondAttribute="bottom" constant="16" id="T9W-7f-di3"/>
                             <constraint firstItem="7He-Qe-s07" firstAttribute="leading" secondItem="yf5-gu-vTF" secondAttribute="leading" id="UIe-Y4-O1b"/>
                             <constraint firstItem="hAX-2p-SH3" firstAttribute="top" secondItem="e7e-Pf-nb6" secondAttribute="bottom" constant="8" id="WlK-im-bow"/>
                             <constraint firstAttribute="trailing" secondItem="hAX-2p-SH3" secondAttribute="trailing" constant="20" id="bFt-kL-nW3"/>
-                            <constraint firstItem="kik-lV-LCh" firstAttribute="width" secondItem="7He-Qe-s07" secondAttribute="width" multiplier="0.7" id="hG1-4R-pQW"/>
                             <constraint firstAttribute="trailing" secondItem="e7e-Pf-nb6" secondAttribute="trailing" constant="20" id="hXZ-8z-haL"/>
                             <constraint firstAttribute="trailing" secondItem="7He-Qe-s07" secondAttribute="trailing" id="iYW-CL-7aX"/>
                             <constraint firstItem="tMK-PI-oyi" firstAttribute="centerX" secondItem="7He-Qe-s07" secondAttribute="centerX" id="kAw-K9-fyv"/>

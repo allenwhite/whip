@@ -54,16 +54,17 @@ double samplesPerSecond = 100.0;
 		if (hundrethsOfASecond > samplesPerSecond) {
 			
 			//time's up!
-			if (hundrethsOfASecond - whipStartTime > timeFrameToWhip) {
+			if (hundrethsOfASecond - whipStartTime > timeFrameToWhip && wasFaceUp) {
 				[self.motionManager stopDeviceMotionUpdates];
-				NSLog(@"New High: %f", maxAccelX);
+				NSLog(@"New High: %f", maxAccelX / 9.255727);
+				//9.255727
 				dispatch_async(dispatch_get_main_queue(), ^{
 					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 					ScoreViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
-					svc.score = maxAccelX;
-					[self presentViewController:svc animated:YES completion:nil];
+					svc.score = maxAccelX / 9.255727;
+					[self presentViewController:svc animated:NO completion:nil];
 					
 				});
 			}

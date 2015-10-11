@@ -7,6 +7,7 @@
 //
 
 #import "ScoreViewController.h"
+#import "GamePlayViewController.h"
 
 @interface ScoreViewController ()
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-	self.scoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
+	self.scoreLabel.text = [NSString stringWithFormat:@"%d%%", self.score];
 	[self populateHighScore];
 	
 }
@@ -53,11 +54,30 @@
 
 
 - (IBAction)shareToFBTapped:(id)sender {
+	UIActivityViewController *activityViewController =
+					[[UIActivityViewController alloc] initWithActivityItems:
+						@[
+							[NSString stringWithFormat:@"I'm at %d%% whip capacity",self.score],
+							[NSURL URLWithString:@"http://www.cantstopthecrop.com"]
+						]
+					  applicationActivities:nil];
+	
+	activityViewController.excludedActivityTypes = @[
+						      UIActivityTypeAirDrop,
+						      UIActivityTypeAddToReadingList,
+						      UIActivityTypeMail];
+	
+	[self presentViewController:activityViewController
+					   animated:YES
+					 completion:^{
+						 //nuthin, really
+					 }];
 }
 
-- (IBAction)shareToTwitterTapped:(id)sender {
-}
 
 - (IBAction)replayButtonTapped:(id)sender {
+	GamePlayViewController *gpvc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePlayViewController"];
+	[self presentViewController:gpvc animated:YES completion:^{nil;}];
 }
+
 @end
