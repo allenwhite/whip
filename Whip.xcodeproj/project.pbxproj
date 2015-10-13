@@ -14,11 +14,12 @@
 		9FC2804D1BC69C8C003731EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FC2804B1BC69C8C003731EE /* LaunchScreen.storyboard */; };
 		9FC280581BC69C8C003731EE /* WhipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280571BC69C8C003731EE /* WhipTests.m */; };
 		9FC280631BC69C8C003731EE /* WhipUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280621BC69C8C003731EE /* WhipUITests.m */; };
-		9FC280711BC6B727003731EE /* game_over.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FC280701BC6B727003731EE /* game_over.ttf */; settings = {ASSET_TAGS = (); }; };
-		9FC280741BC6B95B003731EE /* HomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280731BC6B95B003731EE /* HomeScreenViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9FC280791BC6D778003731EE /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280781BC6D778003731EE /* InstructionsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9FC2807C1BC6D7A4003731EE /* GamePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2807B1BC6D7A4003731EE /* GamePlayViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9FC2807F1BC6D7D2003731EE /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2807E1BC6D7D2003731EE /* ScoreViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9FC280711BC6B727003731EE /* game_over.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FC280701BC6B727003731EE /* game_over.ttf */; };
+		9FC280741BC6B95B003731EE /* HomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280731BC6B95B003731EE /* HomeScreenViewController.m */; };
+		9FC280791BC6D778003731EE /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280781BC6D778003731EE /* InstructionsViewController.m */; };
+		9FC2807C1BC6D7A4003731EE /* GamePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2807B1BC6D7A4003731EE /* GamePlayViewController.m */; };
+		9FC2807F1BC6D7D2003731EE /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2807E1BC6D7D2003731EE /* ScoreViewController.m */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				9FC2803E1BC69C8B003731EE /* main.m */,
+				9FC2807A1BC6D7A4003731EE /* GamePlayViewController.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -166,7 +168,6 @@
 				9FC280781BC6D778003731EE /* InstructionsViewController.m */,
 				9FC280721BC6B95B003731EE /* HomeScreenViewController.h */,
 				9FC280731BC6B95B003731EE /* HomeScreenViewController.m */,
-				9FC2807A1BC6D7A4003731EE /* GamePlayViewController.h */,
 				9FC2807B1BC6D7A4003731EE /* GamePlayViewController.m */,
 				9FC2807D1BC6D7D2003731EE /* ScoreViewController.h */,
 				9FC2807E1BC6D7D2003731EE /* ScoreViewController.m */,
@@ -241,7 +242,13 @@
 				TargetAttributes = {
 					9FC280391BC69C8B003731EE = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = XWQ3X4T33E;
+						DevelopmentTeam = Q85F8AY584;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
+
 					};
 					9FC280521BC69C8C003731EE = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -451,11 +458,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Whip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alpal.Whip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+
 			};
 			name = Debug;
 		};
@@ -464,11 +474,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+
 				INFOPLIST_FILE = Whip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alpal.Whip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+
+				PROVISIONING_PROFILE = "";
+
 			};
 			name = Release;
 		};
@@ -477,6 +493,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WhipTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alpal.WhipTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,6 +507,9 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WhipTests/Info.plist;
+
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alpal.WhipTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,6 +521,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = WhipUITests/Info.plist;
+
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alpal.WhipUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,6 +536,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = WhipUITests/Info.plist;
+
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alpal.WhipUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -539,6 +566,9 @@
 				9FC280691BC69C8C003731EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+
+			defaultConfigurationName = Release;
+
 		};
 		9FC2806A1BC69C8C003731EE /* Build configuration list for PBXNativeTarget "WhipTests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +577,9 @@
 				9FC2806C1BC69C8C003731EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+
+			defaultConfigurationName = Release;
+
 		};
 		9FC2806D1BC69C8C003731EE /* Build configuration list for PBXNativeTarget "WhipUITests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +588,8 @@
 				9FC2806F1BC69C8C003731EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
