@@ -9,7 +9,10 @@
 #import "ScoreViewController.h"
 #import "GamePlayViewController.h"
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 762f115bdf761ba2e6c4d51f7ef7e514b9a7d760
 @interface ScoreViewController ()
 
 @end
@@ -19,7 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+<<<<<<< HEAD
 	self.scoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
+=======
+	self.scoreLabel.text = [NSString stringWithFormat:@"%d%%", self.score];
+>>>>>>> 762f115bdf761ba2e6c4d51f7ef7e514b9a7d760
 	[self populateHighScore];
 	
 }
@@ -58,7 +65,11 @@
 	UIActivityViewController *activityViewController =
 					[[UIActivityViewController alloc] initWithActivityItems:
 						@[
+<<<<<<< HEAD
 							[NSString stringWithFormat:@"I got a new high score of %d on Whip App! Come at me!",self.score],
+=======
+							[NSString stringWithFormat:@"I'm at %d%% whip capacity",self.score],
+>>>>>>> 762f115bdf761ba2e6c4d51f7ef7e514b9a7d760
 							[NSURL URLWithString:@"http://www.cantstopthecrop.com"]
 						]
 					  applicationActivities:nil];
