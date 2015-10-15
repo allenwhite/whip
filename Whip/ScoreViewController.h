@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@import iAd;
 
-@interface ScoreViewController : UIViewController
+@interface ScoreViewController : UIViewController <ADInterstitialAdDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *bestScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *wasHighScoreLabel;
 - (IBAction)shareToFBTapped:(id)sender;
-- (IBAction)shareToTwitterTapped:(id)sender;
-- (IBAction)replayButtonTapped:(id)sender;
 @property int score;
 
 @end

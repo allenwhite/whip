@@ -21,7 +21,7 @@
         <!--Home Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeScreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreenViewController" id="BYZ-38-t0r" customClass="HomeScreenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -30,12 +30,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StartNoPlay" translatesAutoresizingMaskIntoConstraints="NO" id="sYr-Nc-9Ng">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhipStart" translatesAutoresizingMaskIntoConstraints="NO" id="sYr-Nc-9Ng">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abv-OV-5zX">
-                                <rect key="frame" x="85" y="416" width="431" height="94"/>
+                                <rect key="frame" x="1" y="378" width="600" height="116"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="116" id="5Ok-UW-VX2"/>
@@ -45,7 +45,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XNV-gB-eFC"/>
+                                    <segue destination="Nzu-fa-Jt5" kind="showDetail" identifier="playTapped" id="j0C-7b-8v0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="HIGH SCORE: 123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="B5U-ey-OwM">
@@ -63,7 +63,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sYr-Nc-9Ng" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="87Q-4n-48V"/>
-                            <constraint firstItem="B5U-ey-OwM" firstAttribute="top" secondItem="Abv-OV-5zX" secondAttribute="bottom" constant="8" id="AZr-4I-arD"/>
+                            <constraint firstItem="B5U-ey-OwM" firstAttribute="top" secondItem="Abv-OV-5zX" secondAttribute="bottom" constant="16" id="AZr-4I-arD"/>
                             <constraint firstItem="Abv-OV-5zX" firstAttribute="centerX" secondItem="sYr-Nc-9Ng" secondAttribute="centerX" id="Frn-16-elP"/>
                             <constraint firstItem="sYr-Nc-9Ng" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RnN-Pn-B08"/>
                             <constraint firstAttribute="trailing" secondItem="sYr-Nc-9Ng" secondAttribute="trailing" id="Ww2-M3-nmy"/>
@@ -94,7 +94,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instructions" translatesAutoresizingMaskIntoConstraints="NO" id="wiW-v3-w0j">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instructionsupdated" translatesAutoresizingMaskIntoConstraints="NO" id="wiW-v3-w0j">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -105,7 +105,7 @@
                                     <constraint firstAttribute="height" constant="129" id="Mqf-oQ-0ZY"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="readyButtonTapped:" destination="Nzu-fa-Jt5" eventType="touchUpInside" id="5Sz-dZ-bsp"/>
+                                    <segue destination="zk5-4l-uqo" kind="show" identifier="readyTapped" id="MLM-mU-PN7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -138,7 +138,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="zxR-AE-exQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Backgroundnohalo" translatesAutoresizingMaskIntoConstraints="NO" id="zxR-AE-exQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -183,7 +183,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="7He-Qe-s07">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Backgroundnohalo" translatesAutoresizingMaskIntoConstraints="NO" id="7He-Qe-s07">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -191,7 +191,7 @@
                                 <rect key="frame" x="90" y="343" width="420" height="103"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="63"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="102"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="SHARE"/>
                                 <connections>
@@ -222,11 +222,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="lr1-Jx-klJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="63"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="102"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="REPLAY"/>
                                 <connections>
-                                    <action selector="replayButtonTapped:" destination="Cm0-Op-KvI" eventType="touchUpInside" id="nSp-D1-Bzf"/>
+                                    <segue destination="zk5-4l-uqo" kind="popoverPresentation" identifier="replayTapped" popoverAnchorView="tMK-PI-oyi" id="fXb-HE-bfP">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NEW HIGH SCORE!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn1-oS-sVs">
@@ -278,8 +280,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Instructions" width="1242" height="2208"/>
-        <image name="StartNoPlay" width="1242" height="2208"/>
-        <image name="background" width="1242" height="2208"/>
+        <image name="Backgroundnohalo" width="1242" height="2208"/>
+        <image name="Instructionsupdated" width="1242" height="2208"/>
+        <image name="WhipStart" width="1242" height="2208"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MLM-mU-PN7"/>
+    </inferredMetricsTieBreakers>
 </document>

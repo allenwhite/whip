@@ -10,7 +10,6 @@
 
 @interface HomeScreenViewController : UIViewController
 
-- (IBAction)playButtonTapped:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end

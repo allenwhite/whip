@@ -19,6 +19,7 @@
 		9FC280791BC6D778003731EE /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280781BC6D778003731EE /* InstructionsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9FC2807C1BC6D7A4003731EE /* GamePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2807B1BC6D7A4003731EE /* GamePlayViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9FC2807F1BC6D7D2003731EE /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2807E1BC6D7D2003731EE /* ScoreViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9FDDA3091BCE175F005BE69B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDDA3071BCE1112005BE69B /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		9FC2807B1BC6D7A4003731EE /* GamePlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayViewController.m; sourceTree = "<group>"; };
 		9FC2807D1BC6D7D2003731EE /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
 		9FC2807E1BC6D7D2003731EE /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
+		9FDDA3071BCE1112005BE69B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FDDA3091BCE175F005BE69B /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +95,7 @@
 		9FC280311BC69C8B003731EE = {
 			isa = PBXGroup;
 			children = (
+				9FDDA3071BCE1112005BE69B /* iAd.framework */,
 				9FC280701BC6B727003731EE /* game_over.ttf */,
 				9FC2803C1BC69C8B003731EE /* Whip */,
 				9FC280561BC69C8C003731EE /* WhipTests */,
@@ -539,6 +543,7 @@
 				9FC280691BC69C8C003731EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FC2806A1BC69C8C003731EE /* Build configuration list for PBXNativeTarget "WhipTests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +552,7 @@
 				9FC2806C1BC69C8C003731EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FC2806D1BC69C8C003731EE /* Build configuration list for PBXNativeTarget "WhipUITests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +561,7 @@
 				9FC2806F1BC69C8C003731EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,6 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "ScoreViewController.h"
 #import <AudioToolbox/AudioServices.h>
+#import <iAd/iAd.h>
 
 @interface GamePlayViewController ()
 
@@ -34,10 +35,21 @@ double samplesPerSecond = 100.0;
 	}
 }
 
+
+-(void)viewDidAppear:(BOOL)animated{
+	if (!self.motionManager.deviceMotionAvailable) {
+		ScoreViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
+		svc.score = 0;
+		svc.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
+		[self presentViewController:svc animated:NO completion:nil];
+	}
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 -(void)startGame{
@@ -56,17 +68,18 @@ double samplesPerSecond = 100.0;
 			//time's up!
 			if (hundrethsOfASecond - whipStartTime > timeFrameToWhip && wasFaceUp) {
 				[self.motionManager stopDeviceMotionUpdates];
+
 				NSLog(@"New High: %f", maxAccelX);
-				NSLog(@"New High: %f", maxAccelX / 9.255727 * 100.0);
+				NSLog(@"New High: %f", maxAccelX *maxAccelX * 13.0);
 				//9.255727
 				dispatch_async(dispatch_get_main_queue(), ^{
-					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+//					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+					AudioServicesPlayAlertSound(1352);
+
 					ScoreViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
-					svc.score = maxAccelX / 9.255727 *100.0;
+					svc.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
+					svc.score = maxAccelX * maxAccelX * 13.0;
 					[self presentViewController:svc animated:NO completion:nil];
-					
 				});
 			}
 			

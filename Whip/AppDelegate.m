@@ -7,16 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeScreenViewController.h"
 
 @interface AppDelegate ()
 
 @end
+
+@import iAd;
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
+	[UIViewController prepareInterstitialAds];
+	
 	return YES;
 }
 
@@ -32,6 +37,10 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 	// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+	//Home controller
+	HomeScreenViewController *hsvc = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreenViewController"];
+	self.window.rootViewController = hsvc;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

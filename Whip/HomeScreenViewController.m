@@ -38,8 +38,4 @@
 }
 
 
-- (IBAction)playButtonTapped:(id)sender {
-	InstructionsViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"InstructionsViewController"];
-	[self presentViewController:ivc animated:YES completion:nil];
-}
 @end

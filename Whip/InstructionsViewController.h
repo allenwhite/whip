@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface InstructionsViewController : UIViewController
-- (IBAction)readyButtonTapped:(id)sender;
 
 @end
