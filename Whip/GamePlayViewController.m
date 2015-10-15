@@ -39,7 +39,7 @@ double samplesPerSecond = 100.0;
 -(void)viewDidAppear:(BOOL)animated{
 	if (!self.motionManager.deviceMotionAvailable) {
 		ScoreViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
-		svc.score = 0;
+		svc.score = 0.0;
 		svc.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
 		[self presentViewController:svc animated:NO completion:nil];
 	}
@@ -59,7 +59,6 @@ double samplesPerSecond = 100.0;
 	__block int whipStartTime = 0;
 	__block float maxAccelX = 0;
 	float timeFrameToWhip = 200;
-	
 	[self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
 		//if one sec has passed
 		hundrethsOfASecond++;

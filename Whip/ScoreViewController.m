@@ -27,7 +27,6 @@
 	interstitial = [[ADInterstitialAd alloc] init];
 	interstitial.delegate = self;
 	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,7 +121,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	NSLog(@"pp4segway");
 	[self requestInterstitialAdPresentation];
-	
+	//why do I not get ads on my device?
 }
 
 
