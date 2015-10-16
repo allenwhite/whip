@@ -67,7 +67,6 @@ double samplesPerSecond = 100.0;
 			//time's up!
 			if (hundrethsOfASecond - whipStartTime > timeFrameToWhip && wasFaceUp) {
 				[self.motionManager stopDeviceMotionUpdates];
-
 				NSLog(@"New High: %f", maxAccelX);
 				NSLog(@"New High: %f", maxAccelX *maxAccelX * 13.0);
 				//9.255727

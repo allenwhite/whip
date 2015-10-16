@@ -48,7 +48,7 @@
                                     <segue destination="Nzu-fa-Jt5" kind="showDetail" identifier="playTapped" id="j0C-7b-8v0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="HIGH SCORE: 123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="B5U-ey-OwM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH SCORE: 123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="B5U-ey-OwM">
                                 <rect key="frame" x="85" y="518" width="431" height="62"/>
                                 <animations/>
                                 <constraints>
@@ -67,11 +67,11 @@
                             <constraint firstItem="Abv-OV-5zX" firstAttribute="centerX" secondItem="sYr-Nc-9Ng" secondAttribute="centerX" id="Frn-16-elP"/>
                             <constraint firstItem="sYr-Nc-9Ng" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RnN-Pn-B08"/>
                             <constraint firstAttribute="trailing" secondItem="sYr-Nc-9Ng" secondAttribute="trailing" id="Ww2-M3-nmy"/>
-                            <constraint firstItem="Abv-OV-5zX" firstAttribute="width" secondItem="sYr-Nc-9Ng" secondAttribute="width" id="Yrt-Vv-CpI"/>
+                            <constraint firstItem="Abv-OV-5zX" firstAttribute="width" secondItem="sYr-Nc-9Ng" secondAttribute="width" constant="-169" id="Yrt-Vv-CpI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B5U-ey-OwM" secondAttribute="bottom" constant="20" id="bdY-9R-NNs"/>
-                            <constraint firstItem="B5U-ey-OwM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gXt-Py-qd9"/>
+                            <constraint firstItem="B5U-ey-OwM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="85" id="gXt-Py-qd9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sYr-Nc-9Ng" secondAttribute="bottom" id="pPm-m9-9ah"/>
-                            <constraint firstAttribute="trailing" secondItem="B5U-ey-OwM" secondAttribute="trailing" id="xuZ-oe-LKY"/>
+                            <constraint firstAttribute="trailing" secondItem="B5U-ey-OwM" secondAttribute="trailing" constant="84" id="xuZ-oe-LKY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -263,7 +263,7 @@
                             <constraint firstAttribute="trailing" secondItem="7He-Qe-s07" secondAttribute="trailing" id="iYW-CL-7aX"/>
                             <constraint firstItem="tMK-PI-oyi" firstAttribute="centerX" secondItem="7He-Qe-s07" secondAttribute="centerX" id="kAw-K9-fyv"/>
                             <constraint firstItem="Sl5-0W-TxN" firstAttribute="width" secondItem="7He-Qe-s07" secondAttribute="width" multiplier="0.7" id="mGc-cI-l4g"/>
-                            <constraint firstItem="vn1-oS-sVs" firstAttribute="baseline" secondItem="hAX-2p-SH3" secondAttribute="baseline" id="oCH-r8-Urk"/>
+                            <constraint firstItem="vn1-oS-sVs" firstAttribute="baseline" secondItem="hAX-2p-SH3" secondAttribute="baseline" constant="82.5" id="oCH-r8-Urk"/>
                             <constraint firstItem="tMK-PI-oyi" firstAttribute="width" secondItem="7He-Qe-s07" secondAttribute="width" multiplier="0.7" id="tmR-Ix-5xa"/>
                             <constraint firstItem="7He-Qe-s07" firstAttribute="top" secondItem="yf5-gu-vTF" secondAttribute="top" id="wIh-pd-mM8"/>
                         </constraints>

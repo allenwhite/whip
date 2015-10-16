@@ -14,6 +14,7 @@
 	ADInterstitialAd *interstitial;
 }
 @property UIImage *screenshot;
+
 @end
 
 @implementation ScoreViewController

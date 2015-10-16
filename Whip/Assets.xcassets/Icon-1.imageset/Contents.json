@@ -2,11 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-<<<<<<< HEAD
-      "filename" : "WhipStart.jpg",
-=======
-      "filename" : "StartNoPlay.jpg",
->>>>>>> 762f115bdf761ba2e6c4d51f7ef7e514b9a7d760
+      "filename" : "Icon.jpg",
       "scale" : "1x"
     },
     {
