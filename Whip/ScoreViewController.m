@@ -61,9 +61,11 @@ bool hasSaved = NO;
 
 
 -(void)saveToLeaderBoard{
-	UIAlertView *alertViewChangeName=[[UIAlertView alloc]initWithTitle:@"HIGH SCORE!" message:@"Add your name to post to the leaderboard!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-	alertViewChangeName.alertViewStyle=UIAlertViewStylePlainTextInput;
-	[alertViewChangeName show];
+	if (self.firstTime) {
+		UIAlertView *alertViewChangeName=[[UIAlertView alloc]initWithTitle:@"HIGH SCORE!" message:@"Add your name to post to the leaderboard!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+		alertViewChangeName.alertViewStyle=UIAlertViewStylePlainTextInput;
+		[alertViewChangeName show];
+	}
 }
 
 
@@ -176,6 +178,7 @@ bool hasSaved = NO;
 	if ([segue.identifier isEqualToString:@"leaderboardTapped"]) {
 		LeaderBoardViewController *lbvc = segue.destinationViewController;
 		lbvc.topScores = self.top10Scores;
+		lbvc.score = self.score;
 	}else if([segue.identifier isEqualToString:@"replayTapped"]){
 		[self requestInterstitialAdPresentation];
 	}

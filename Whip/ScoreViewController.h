@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *wasHighScoreLabel;
 - (IBAction)shareToFBTapped:(id)sender;
 @property int score;
+@property BOOL firstTime;
 
 @end

@@ -41,6 +41,7 @@ double samplesPerSecond = 100.0;
 		ScoreViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
 		svc.score = 0.0;
 		svc.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
+		svc.firstTime = YES;
 		[self presentViewController:svc animated:NO completion:nil];
 	}
 }
@@ -77,6 +78,7 @@ double samplesPerSecond = 100.0;
 					ScoreViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
 					svc.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
 					svc.score = maxAccelX * maxAccelX * 13.0;
+					svc.firstTime = YES;
 					[self presentViewController:svc animated:NO completion:nil];
 				});
 			}

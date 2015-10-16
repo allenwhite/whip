@@ -197,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				9FC2803E1BC69C8B003731EE /* main.m */,
-				9FC2807A1BC6D7A4003731EE /* GamePlayViewController.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -238,6 +237,7 @@
 				9FC280781BC6D778003731EE /* InstructionsViewController.m */,
 				9FC280721BC6B95B003731EE /* HomeScreenViewController.h */,
 				9FC280731BC6B95B003731EE /* HomeScreenViewController.m */,
+				9FC2807A1BC6D7A4003731EE /* GamePlayViewController.h */,
 				9FC2807B1BC6D7A4003731EE /* GamePlayViewController.m */,
 				9FC2807D1BC6D7D2003731EE /* ScoreViewController.h */,
 				9FC2807E1BC6D7D2003731EE /* ScoreViewController.m */,

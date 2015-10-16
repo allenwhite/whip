@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LeaderBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (strong, nonatomic) NSArray *topScores;
+@property int score;
 
 @end
