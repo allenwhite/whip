@@ -2,11 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-<<<<<<< HEAD
       "filename" : "Backgroundnohalo.jpg",
-=======
-      "filename" : "background.jpg",
->>>>>>> 762f115bdf761ba2e6c4d51f7ef7e514b9a7d760
       "scale" : "1x"
     },
     {

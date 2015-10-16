@@ -9,15 +9,20 @@
 #import "ScoreViewController.h"
 #import "GamePlayViewController.h"
 #import <iAd/iAd.h>
+#import <Parse/Parse.h>
+#import "LeaderBoardViewController.h"
 
 @interface ScoreViewController (){
 	ADInterstitialAd *interstitial;
 }
 @property UIImage *screenshot;
+@property NSArray *top10Scores;
 
 @end
 
 @implementation ScoreViewController
+
+bool hasSaved = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +33,7 @@
 	interstitial = [[ADInterstitialAd alloc] init];
 	interstitial.delegate = self;
 	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
+	[self getTopScores];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +41,52 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)getTopScores{
+	PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
+	[query orderByDescending:@"score"];
+	query.limit = 10;
+	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+		if (!error) {
+			self.top10Scores = objects;
+			if ([NSNumber numberWithInt:self.score] > [self.top10Scores.lastObject objectForKey:@"score"] && !hasSaved) {
+				[self saveToLeaderBoard];
+			}
+		} else {
+			// Log details of the failure
+			NSLog(@"Error: %@ %@", error, [error userInfo]);
+		}
+	}];
+}
+
+
+-(void)saveToLeaderBoard{
+	UIAlertView *alertViewChangeName=[[UIAlertView alloc]initWithTitle:@"HIGH SCORE!" message:@"Add your name to post to the leaderboard!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+	alertViewChangeName.alertViewStyle=UIAlertViewStylePlainTextInput;
+	[alertViewChangeName show];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	NSString *username = [[alertView textFieldAtIndex:0] text];
+	if (!username || username.length == 0) {
+		return;
+	}
+	PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+	gameScore[@"score"] = [NSNumber numberWithInt: self.score];
+	gameScore[@"playerName"] = username;
+	[gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+		if (succeeded) {
+			// The object has been saved.
+			hasSaved = YES;
+			NSLog(@"has saved");
+			[self getTopScores];
+		} else {
+			// There was a problem, check error.description
+			NSLog(@"%@", error.localizedDescription);
+		}
+	}];
+}
 
 // When this method is invoked, the application should remove the view from the screen and tear it down.
 // The content will be unloaded shortly after this method is called and no new content will be loaded in that view.
@@ -121,7 +173,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	NSLog(@"pp4segway");
-	[self requestInterstitialAdPresentation];
+	if ([segue.identifier isEqualToString:@"leaderboardTapped"]) {
+		LeaderBoardViewController *lbvc = segue.destinationViewController;
+		lbvc.topScores = self.top10Scores;
+	}else if([segue.identifier isEqualToString:@"replayTapped"]){
+		[self requestInterstitialAdPresentation];
+	}
+	
 	//why do I not get ads on my device?
 }
 

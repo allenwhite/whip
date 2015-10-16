@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeScreenViewController.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -21,6 +22,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
 	[UIViewController prepareInterstitialAds];
+	
+	// Initialize Parse.
+	[Parse setApplicationId:@"h7AF6v1BMu9K94qase78fqEfk0F4NwsVsBqIkZoc"
+		      clientKey:@"EDS0ouDdeu1KVMMWGIZwjCc4qTgTMqvOrmkl6pGn"];
+ 
+	// [Optional] Track statistics around application opens.
+	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 	
 	return YES;
 }
