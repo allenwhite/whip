@@ -33,7 +33,7 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
     // Do any additional setup after loading the view.
 	self.scoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
 	[self populateHighScore];
-	[self takeScreenShot];
+
 	
 
 	
@@ -63,6 +63,7 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	interstitial = [[ADInterstitialAd alloc] init];
 	interstitial.delegate = self;
 	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
+	[self takeScreenShot];
 	[self getTopScores];
 }
 
