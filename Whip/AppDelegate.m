@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "HomeScreenViewController.h"
 #import <Parse/Parse.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 
 @interface AppDelegate ()
 
@@ -29,6 +31,9 @@
  
 	// [Optional] Track statistics around application opens.
 	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+	
+	[[FBSDKApplicationDelegate sharedInstance] application:application
+				 didFinishLaunchingWithOptions:launchOptions];
 	
 	return YES;
 }
@@ -57,6 +62,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+	return [[FBSDKApplicationDelegate sharedInstance] application:application
+							      openURL:url
+						    sourceApplication:sourceApplication
+							   annotation:annotation
+  ];
 }
 
 @end

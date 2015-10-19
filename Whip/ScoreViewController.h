@@ -17,5 +17,6 @@
 - (IBAction)shareToFBTapped:(id)sender;
 @property int score;
 @property BOOL firstTime;
+@property (strong, nonatomic) IBOutlet UIButton *leaderboardButton;
 
 @end

@@ -11,6 +11,8 @@
 #import <iAd/iAd.h>
 #import <Parse/Parse.h>
 #import "LeaderBoardViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 @interface ScoreViewController (){
 	ADInterstitialAd *interstitial;
@@ -24,12 +26,40 @@
 
 bool hasSaved = NO;
 
+NSString *shareUrl = @"http://www.cantstopthecrop.com";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 	self.scoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
 	[self populateHighScore];
 	[self takeScreenShot];
+	
+
+	
+	
+	
+	FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+	photo.image = self.screenshot;
+	photo.userGenerated = YES;
+	photo.caption = [NSString stringWithFormat:@"I got a new high score of %d on Whip App! Come at me!",self.score];
+	FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+	content.photos = @[photo];
+	content.contentURL = [NSURL
+			    URLWithString:shareUrl];
+	
+	
+	FBSDKShareButton *shareButton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(
+											   self.leaderboardButton.frame.origin.x,
+											   self.leaderboardButton.frame.origin.y + 76,
+											   self.leaderboardButton.frame.size.width,
+											   self.leaderboardButton.frame.size.height)];
+	shareButton.shareContent = content;
+	shareButton.titleLabel.font = [UIFont fontWithName:@"Game over" size:100];
+	shareButton.titleLabel.textAlignment = UIControlContentHorizontalAlignmentCenter;
+	[self.view addSubview:shareButton];
+	
+	NSLog(shareButton.enabled ? @"Yes" : @"No");
 	interstitial = [[ADInterstitialAd alloc] init];
 	interstitial.delegate = self;
 	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
@@ -154,7 +184,7 @@ bool hasSaved = NO;
 					[[UIActivityViewController alloc] initWithActivityItems:
 						@[
 							[NSString stringWithFormat:@"I got a new high score of %d on Whip App! Come at me!",self.score],
-							[NSURL URLWithString:@"http://www.cantstopthecrop.com"],
+							[NSURL URLWithString:shareUrl],
 							self.screenshot
 						]
 					  applicationActivities:nil];
@@ -162,9 +192,9 @@ bool hasSaved = NO;
 	activityViewController.excludedActivityTypes = @[
 						      UIActivityTypeAirDrop,
 						      UIActivityTypeAddToReadingList,
-						      UIActivityTypeMail];
+						      UIActivityTypeMail,
+						      UIActivityTypePostToFacebook];
 	
-	//how do I make this uneditable??
 	[self presentViewController:activityViewController
 					   animated:YES
 					 completion:^{
