@@ -37,8 +37,7 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	interstitial.delegate = self;
 	hasSaved = NO;
 	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
-	[self takeScreenShot];
-	[self getTopScores];
+	
 }
 
 
@@ -46,11 +45,10 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
 	photo.image = self.screenshot;
 	photo.userGenerated = YES;
-	photo.caption = [NSString stringWithFormat:@"I got a new high score of %d on Whip App! Come at me!",self.score];
+	photo.caption = [NSString stringWithFormat:@"%@", [NSURL URLWithString:shareUrl]];
 	FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
 	content.photos = @[photo];
-	content.contentURL = [NSURL
-			      URLWithString:shareUrl];
+	content.contentURL = [NSURL URLWithString:shareUrl];
 	FBSDKShareButton *shareButton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(
 											   self.leaderboardButton.frame.origin.x,
 											   self.leaderboardButton.frame.origin.y + 76,
@@ -59,6 +57,9 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	shareButton.shareContent = content;
 	shareButton.titleLabel.font = [UIFont fontWithName:@"Game over" size:100];
 	[self.view addSubview:shareButton];
+	
+	[self takeScreenShot];
+	[self getTopScores];
 }
 
 
