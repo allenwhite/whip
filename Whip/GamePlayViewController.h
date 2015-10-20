@@ -11,5 +11,4 @@
 
 @interface GamePlayViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *feedbackLabel;
-@property ADInterstitialAd *iad;
 @end

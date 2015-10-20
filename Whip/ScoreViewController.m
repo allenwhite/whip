@@ -34,6 +34,8 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	self.scoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
 	[self populateHighScore];
 	interstitial = [[ADInterstitialAd alloc] init];
+	interstitial.delegate = self;
+	hasSaved = NO;
 	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
 	[self takeScreenShot];
 	[self getTopScores];
@@ -60,6 +62,30 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 }
 
 
+
+// When this method is invoked, the application should remove the view from the screen and tear it down.
+// The content will be unloaded shortly after this method is called and no new content will be loaded in that view.
+// This may occur either when the user dismisses the interstitial view via the dismiss button or
+// if the content in the view has expired.
+- (void)interstitialAdDidUnload:(ADInterstitialAd *)interstitialAd {
+	NSLog(@"bout to unload on sum mo fukkas");
+}
+
+// This method will be invoked when an error has occurred attempting to get advertisement content.
+// The ADError enum lists the possible error codes.
+- (void)interstitialAd:(ADInterstitialAd *)interstitialAd didFailWithError:(NSError *)error {
+	NSLog(@"XXXX%@", error.localizedDescription);
+}
+
+
+-(void)interstitialAdActionDidFinish:(ADInterstitialAd *)interstitialAd {
+	NSLog(@"interstitialAdDidFINISH");
+}
+
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -73,6 +99,7 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 		if (!error) {
 			self.top10Scores = objects;
+			NSLog(hasSaved ? @"hasSaved" : @"aintSaved");
 			if ([NSNumber numberWithInt:self.score] > [self.top10Scores.lastObject objectForKey:@"score"] && !hasSaved) {
 				[self saveToLeaderBoard];
 			}
@@ -187,7 +214,9 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 		LeaderBoardViewController *lbvc = segue.destinationViewController;
 		lbvc.topScores = self.top10Scores;
 		lbvc.score = self.score;
+		
 	}else if([segue.identifier isEqualToString:@"replayTapped"]){
+		GamePlayViewController *gpvc = segue.destinationViewController;
 		[self requestInterstitialAdPresentation];
 	}
 }
