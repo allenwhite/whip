@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9FAA006E1BD54626002A9CD6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAA006B1BD54626002A9CD6 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		9FAA006F1BD54626002A9CD6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAA006C1BD54626002A9CD6 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		9FAA00701BD54626002A9CD6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAA006D1BD54626002A9CD6 /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
+		9F581C3E1BD5F42F0081387A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F581C3B1BD5F42F0081387A /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		9F581C3F1BD5F42F0081387A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F581C3C1BD5F42F0081387A /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		9F581C401BD5F42F0081387A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F581C3D1BD5F42F0081387A /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
 		9FC2803F1BC69C8B003731EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2803E1BC69C8B003731EE /* main.m */; };
 		9FC280421BC69C8B003731EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280411BC69C8B003731EE /* AppDelegate.m */; };
 		9FC280481BC69C8B003731EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FC280461BC69C8B003731EE /* Main.storyboard */; };
@@ -61,9 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9FAA006B1BD54626002A9CD6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../FacebookSDKs/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		9FAA006C1BD54626002A9CD6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FacebookSDKs/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		9FAA006D1BD54626002A9CD6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FacebookSDKs/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		9F581C3B1BD5F42F0081387A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDKs/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		9F581C3C1BD5F42F0081387A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDKs/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		9F581C3D1BD5F42F0081387A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = FacebookSDKs/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		9FC2803A1BC69C8B003731EE /* Whip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC2803E1BC69C8B003731EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FC280401BC69C8B003731EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,14 +117,14 @@
 			files = (
 				9FCED7181BD0A40200D19500 /* libsqlite3.tbd in Frameworks */,
 				9FCED7191BD0A40200D19500 /* libz.tbd in Frameworks */,
-				9FAA006F1BD54626002A9CD6 /* FBSDKLoginKit.framework in Frameworks */,
+				9F581C3F1BD5F42F0081387A /* FBSDKLoginKit.framework in Frameworks */,
 				9FCED7151BD0A3A900D19500 /* SystemConfiguration.framework in Frameworks */,
 				9FCED7131BD0A39F00D19500 /* StoreKit.framework in Frameworks */,
 				9FCED7111BD0A39500D19500 /* Security.framework in Frameworks */,
 				9FCED70F1BD0A38D00D19500 /* QuartzCore.framework in Frameworks */,
 				9FCED70D1BD0A37F00D19500 /* CoreLocation.framework in Frameworks */,
 				9FCED70B1BD0A37600D19500 /* CoreGraphics.framework in Frameworks */,
-				9FAA006E1BD54626002A9CD6 /* FBSDKCoreKit.framework in Frameworks */,
+				9F581C3E1BD5F42F0081387A /* FBSDKCoreKit.framework in Frameworks */,
 				9FCED7091BD0A36C00D19500 /* CFNetwork.framework in Frameworks */,
 				9FCED7071BD0A36000D19500 /* AudioToolbox.framework in Frameworks */,
 				9FDDA3091BCE175F005BE69B /* iAd.framework in Frameworks */,
@@ -132,7 +132,7 @@
 				9FCED7031BD0A31300D19500 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				9FCED7041BD0A31300D19500 /* ParseTwitterUtils.framework in Frameworks */,
 				9FCED6FF1BD0A31300D19500 /* Bolts.framework in Frameworks */,
-				9FAA00701BD54626002A9CD6 /* FBSDKShareKit.framework in Frameworks */,
+				9F581C401BD5F42F0081387A /* FBSDKShareKit.framework in Frameworks */,
 				9FCED7021BD0A31300D19500 /* ParseFacebookUtils.framework in Frameworks */,
 				9FCED7051BD0A31300D19500 /* ParseUI.framework in Frameworks */,
 				9FCED7011BD0A31300D19500 /* ParseCrashReporting.framework in Frameworks */,
@@ -159,9 +159,9 @@
 		9FAA006A1BD544DF002A9CD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9FAA006B1BD54626002A9CD6 /* FBSDKCoreKit.framework */,
-				9FAA006C1BD54626002A9CD6 /* FBSDKLoginKit.framework */,
-				9FAA006D1BD54626002A9CD6 /* FBSDKShareKit.framework */,
+				9F581C3B1BD5F42F0081387A /* FBSDKCoreKit.framework */,
+				9F581C3C1BD5F42F0081387A /* FBSDKLoginKit.framework */,
+				9F581C3D1BD5F42F0081387A /* FBSDKShareKit.framework */,
 				9FCED7141BD0A3A900D19500 /* SystemConfiguration.framework */,
 				9FCED7121BD0A39F00D19500 /* StoreKit.framework */,
 				9FCED7101BD0A39500D19500 /* Security.framework */,
@@ -558,13 +558,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Allen White (9Y762VF2F4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Allen White (9Y762VF2F4)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library",
+					"$(PROJECT_DIR)/FacebookSDKs",
 				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					/Users/allen/Documents/xCode/FacebookSDKs,
-					"$(inherited)",
-				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = Whip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -581,13 +578,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Allen White (9Y762VF2F4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Allen White (9Y762VF2F4)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library",
+					"$(PROJECT_DIR)/FacebookSDKs",
 				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					/Users/allen/Documents/xCode/FacebookSDKs,
-				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = Whip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

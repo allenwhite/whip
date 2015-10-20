@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
 @interface GamePlayViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *feedbackLabel;
-
+@property ADInterstitialAd *iad;
 @end

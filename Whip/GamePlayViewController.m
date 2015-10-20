@@ -10,9 +10,8 @@
 #import <CoreMotion/CoreMotion.h>
 #import "ScoreViewController.h"
 #import <AudioToolbox/AudioServices.h>
-#import <iAd/iAd.h>
 
-@interface GamePlayViewController ()
+@interface GamePlayViewController ()<ADInterstitialAdDelegate>
 
 @property CMMotionManager *motionManager;
 
@@ -22,6 +21,7 @@
 
 double samplesPerSecond = 100.0;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -30,9 +30,14 @@ double samplesPerSecond = 100.0;
 	//wait 1 second, then do this...
 	self.motionManager = [CMMotionManager new];
 	[self.motionManager setAccelerometerUpdateInterval:(1.0/samplesPerSecond)];
-	if (self.motionManager.deviceMotionAvailable) {
-		[self startGame];
+	if (self.iad) {
+		self.iad.delegate = self;
+	}else{
+		if (self.motionManager.deviceMotionAvailable) {
+			[self startGame];
+		}
 	}
+	
 }
 
 
@@ -120,6 +125,26 @@ double samplesPerSecond = 100.0;
 	//				NSLog(@"acc z: %f", motion.userAcceleration.z);
 	//
 	//				NSLog(@"######################################################");
+}
+
+// When this method is invoked, the application should remove the view from the screen and tear it down.
+// The content will be unloaded shortly after this method is called and no new content will be loaded in that view.
+// This may occur either when the user dismisses the interstitial view via the dismiss button or
+// if the content in the view has expired.
+- (void)interstitialAdDidUnload:(ADInterstitialAd *)interstitialAd {
+	NSLog(@"bout to unload on sum mo fukkas");
+}
+
+// This method will be invoked when an error has occurred attempting to get advertisement content.
+// The ADError enum lists the possible error codes.
+- (void)interstitialAd:(ADInterstitialAd *)interstitialAd didFailWithError:(NSError *)error {
+	NSLog(@"XXXX%@", error.localizedDescription);
+}
+
+
+-(void)interstitialAdActionDidFinish:(ADInterstitialAd *)interstitialAd {
+	NSLog(@"interstitialAdDidFINISH");
+	[self startGame];
 }
 
 

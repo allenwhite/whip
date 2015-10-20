@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @import iAd;
 
-@interface ScoreViewController : UIViewController <ADInterstitialAdDelegate>
+@interface ScoreViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *bestScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *scoreLabel;

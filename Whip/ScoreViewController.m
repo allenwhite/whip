@@ -33,12 +33,14 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
     // Do any additional setup after loading the view.
 	self.scoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
 	[self populateHighScore];
+	interstitial = [[ADInterstitialAd alloc] init];
+	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
+	[self takeScreenShot];
+	[self getTopScores];
+}
 
-	
 
-	
-	
-	
+-(void)viewDidLayoutSubviews{
 	FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
 	photo.image = self.screenshot;
 	photo.userGenerated = YES;
@@ -46,9 +48,7 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
 	content.photos = @[photo];
 	content.contentURL = [NSURL
-			    URLWithString:shareUrl];
-	
-	
+			      URLWithString:shareUrl];
 	FBSDKShareButton *shareButton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(
 											   self.leaderboardButton.frame.origin.x,
 											   self.leaderboardButton.frame.origin.y + 76,
@@ -56,16 +56,9 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 											   self.leaderboardButton.frame.size.height)];
 	shareButton.shareContent = content;
 	shareButton.titleLabel.font = [UIFont fontWithName:@"Game over" size:100];
-	shareButton.titleLabel.textAlignment = UIControlContentHorizontalAlignmentCenter;
 	[self.view addSubview:shareButton];
-	
-	NSLog(shareButton.enabled ? @"Yes" : @"No");
-	interstitial = [[ADInterstitialAd alloc] init];
-	interstitial.delegate = self;
-	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
-	[self takeScreenShot];
-	[self getTopScores];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -120,22 +113,6 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 		}
 	}];
 }
-
-// When this method is invoked, the application should remove the view from the screen and tear it down.
-// The content will be unloaded shortly after this method is called and no new content will be loaded in that view.
-// This may occur either when the user dismisses the interstitial view via the dismiss button or
-// if the content in the view has expired.
-- (void)interstitialAdDidUnload:(ADInterstitialAd *)interstitialAd {
-	NSLog(@"bout to unload on sum mo fukkas");
-}
-
-// This method will be invoked when an error has occurred attempting to get advertisement content.
-// The ADError enum lists the possible error codes.
-- (void)interstitialAd:(ADInterstitialAd *)interstitialAd didFailWithError:(NSError *)error {
-	NSLog(@"XXXX%@", error.localizedDescription);
-}
-
-
 
 
 
@@ -213,8 +190,6 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	}else if([segue.identifier isEqualToString:@"replayTapped"]){
 		[self requestInterstitialAdPresentation];
 	}
-	
-	//why do I not get ads on my device?
 }
 
 
