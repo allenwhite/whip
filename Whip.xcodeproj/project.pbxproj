@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F581C3E1BD5F42F0081387A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F581C3B1BD5F42F0081387A /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		9F581C3F1BD5F42F0081387A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F581C3C1BD5F42F0081387A /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		9F581C401BD5F42F0081387A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F581C3D1BD5F42F0081387A /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
 		9FC2803F1BC69C8B003731EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2803E1BC69C8B003731EE /* main.m */; };
 		9FC280421BC69C8B003731EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC280411BC69C8B003731EE /* AppDelegate.m */; };
 		9FC280481BC69C8B003731EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FC280461BC69C8B003731EE /* Main.storyboard */; };
@@ -41,6 +38,7 @@
 		9FCED71C1BD0C7A700D19500 /* LeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCED71B1BD0C7A700D19500 /* LeaderBoardViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9FCED7221BD0CB1300D19500 /* HighScoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCED7211BD0CB1300D19500 /* HighScoreTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		9FDDA3091BCE175F005BE69B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDDA3071BCE1112005BE69B /* iAd.framework */; };
+		9FE5CB491BD6DEC00050D5FD /* TimerUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE5CB481BD6DEC00050D5FD /* TimerUIApplication.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9F581C3B1BD5F42F0081387A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDKs/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		9F581C3C1BD5F42F0081387A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDKs/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		9F581C3D1BD5F42F0081387A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = FacebookSDKs/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		9FC2803A1BC69C8B003731EE /* Whip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC2803E1BC69C8B003731EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FC280401BC69C8B003731EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +103,8 @@
 		9FCED7201BD0CB1300D19500 /* HighScoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreTableViewCell.h; sourceTree = "<group>"; };
 		9FCED7211BD0CB1300D19500 /* HighScoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreTableViewCell.m; sourceTree = "<group>"; };
 		9FDDA3071BCE1112005BE69B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		9FE5CB471BD6DEC00050D5FD /* TimerUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerUIApplication.h; sourceTree = "<group>"; };
+		9FE5CB481BD6DEC00050D5FD /* TimerUIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerUIApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,14 +114,12 @@
 			files = (
 				9FCED7181BD0A40200D19500 /* libsqlite3.tbd in Frameworks */,
 				9FCED7191BD0A40200D19500 /* libz.tbd in Frameworks */,
-				9F581C3F1BD5F42F0081387A /* FBSDKLoginKit.framework in Frameworks */,
 				9FCED7151BD0A3A900D19500 /* SystemConfiguration.framework in Frameworks */,
 				9FCED7131BD0A39F00D19500 /* StoreKit.framework in Frameworks */,
 				9FCED7111BD0A39500D19500 /* Security.framework in Frameworks */,
 				9FCED70F1BD0A38D00D19500 /* QuartzCore.framework in Frameworks */,
 				9FCED70D1BD0A37F00D19500 /* CoreLocation.framework in Frameworks */,
 				9FCED70B1BD0A37600D19500 /* CoreGraphics.framework in Frameworks */,
-				9F581C3E1BD5F42F0081387A /* FBSDKCoreKit.framework in Frameworks */,
 				9FCED7091BD0A36C00D19500 /* CFNetwork.framework in Frameworks */,
 				9FCED7071BD0A36000D19500 /* AudioToolbox.framework in Frameworks */,
 				9FDDA3091BCE175F005BE69B /* iAd.framework in Frameworks */,
@@ -132,7 +127,6 @@
 				9FCED7031BD0A31300D19500 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				9FCED7041BD0A31300D19500 /* ParseTwitterUtils.framework in Frameworks */,
 				9FCED6FF1BD0A31300D19500 /* Bolts.framework in Frameworks */,
-				9F581C401BD5F42F0081387A /* FBSDKShareKit.framework in Frameworks */,
 				9FCED7021BD0A31300D19500 /* ParseFacebookUtils.framework in Frameworks */,
 				9FCED7051BD0A31300D19500 /* ParseUI.framework in Frameworks */,
 				9FCED7011BD0A31300D19500 /* ParseCrashReporting.framework in Frameworks */,
@@ -159,9 +153,6 @@
 		9FAA006A1BD544DF002A9CD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9F581C3B1BD5F42F0081387A /* FBSDKCoreKit.framework */,
-				9F581C3C1BD5F42F0081387A /* FBSDKLoginKit.framework */,
-				9F581C3D1BD5F42F0081387A /* FBSDKShareKit.framework */,
 				9FCED7141BD0A3A900D19500 /* SystemConfiguration.framework */,
 				9FCED7121BD0A39F00D19500 /* StoreKit.framework */,
 				9FCED7101BD0A39500D19500 /* Security.framework */,
@@ -205,6 +196,8 @@
 			children = (
 				9FC280401BC69C8B003731EE /* AppDelegate.h */,
 				9FC280411BC69C8B003731EE /* AppDelegate.m */,
+				9FE5CB471BD6DEC00050D5FD /* TimerUIApplication.h */,
+				9FE5CB481BD6DEC00050D5FD /* TimerUIApplication.m */,
 				9FC280751BC6B96E003731EE /* view */,
 				9FC280761BC6B97D003731EE /* controllers */,
 				9FC2804E1BC69C8C003731EE /* Info.plist */,
@@ -424,6 +417,7 @@
 				9FC2807F1BC6D7D2003731EE /* ScoreViewController.m in Sources */,
 				9FC2803F1BC69C8B003731EE /* main.m in Sources */,
 				9FC280791BC6D778003731EE /* InstructionsViewController.m in Sources */,
+				9FE5CB491BD6DEC00050D5FD /* TimerUIApplication.m in Sources */,
 				9FCED71C1BD0C7A700D19500 /* LeaderBoardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,10 +551,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Allen White (9Y762VF2F4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Allen White (9Y762VF2F4)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/parse-library",
-					"$(PROJECT_DIR)/FacebookSDKs",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/parse-library";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = Whip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -577,10 +568,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Allen White (9Y762VF2F4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Allen White (9Y762VF2F4)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/parse-library",
-					"$(PROJECT_DIR)/FacebookSDKs",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/parse-library";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = Whip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

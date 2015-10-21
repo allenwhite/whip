@@ -18,5 +18,7 @@
 @property int score;
 @property BOOL firstTime;
 @property (strong, nonatomic) IBOutlet UIButton *leaderboardButton;
+@property (strong, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) IBOutlet UIButton *replayButton;
 
 @end

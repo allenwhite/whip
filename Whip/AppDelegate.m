@@ -9,8 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeScreenViewController.h"
 #import <Parse/Parse.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-
+#import "TimerUIApplication.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +18,8 @@
 @import iAd;
 
 @implementation AppDelegate
+
+@synthesize window = _window;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -32,11 +33,25 @@
 	// [Optional] Track statistics around application opens.
 	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 	
-	[[FBSDKApplicationDelegate sharedInstance] application:application
-				 didFinishLaunchingWithOptions:launchOptions];
-	
+	//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidTimeout:) name:kApplicationDidTimeoutNotification object:nil];
+
 	return YES;
 }
+
+
+-(void)applicationDidTimeout:(NSNotification *) notif
+{
+	NSLog (@"time exceeded!!");
+	
+	//This is where storyboarding vs xib files comes in. Whichever view controller you want to revert back to, on your storyboard, make sure it is given the identifier that matches the following code. In my case, "mainView". My storyboard file is called MainStoryboard.storyboard, so make sure your file name matches the storyboardWithName property.
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+	//Home controller
+	HomeScreenViewController *hsvc = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreenViewController"];
+//	self.window.rootViewController = hsvc;
+	
+	[(UINavigationController *)self.window.rootViewController pushViewController:hsvc animated:YES];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -49,11 +64,11 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-	// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-	//Home controller
-	HomeScreenViewController *hsvc = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreenViewController"];
-	self.window.rootViewController = hsvc;
+//	// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//	//Home controller
+//	HomeScreenViewController *hsvc = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreenViewController"];
+//	self.window.rootViewController = hsvc;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -64,14 +79,5 @@
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-	return [[FBSDKApplicationDelegate sharedInstance] application:application
-							      openURL:url
-						    sourceApplication:sourceApplication
-							   annotation:annotation
-  ];
-}
 
 @end

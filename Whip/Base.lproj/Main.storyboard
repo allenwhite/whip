@@ -198,7 +198,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-0W-TxN">
+                            <button alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-0W-TxN">
                                 <rect key="frame" x="30" y="448" width="540" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -226,7 +226,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMK-PI-oyi">
+                            <button alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMK-PI-oyi">
                                 <rect key="frame" x="30" y="524" width="540" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -242,8 +242,8 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsD-ox-D4N">
-                                <rect key="frame" x="30" y="296" width="540" height="60"/>
+                            <button alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsD-ox-D4N">
+                                <rect key="frame" x="30" y="372" width="540" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="88"/>
@@ -290,7 +290,7 @@
                             <constraint firstItem="tMK-PI-oyi" firstAttribute="centerX" secondItem="7He-Qe-s07" secondAttribute="centerX" id="kAw-K9-fyv"/>
                             <constraint firstItem="Sl5-0W-TxN" firstAttribute="width" secondItem="7He-Qe-s07" secondAttribute="width" multiplier="0.9" id="mGc-cI-l4g"/>
                             <constraint firstItem="ZsD-ox-D4N" firstAttribute="top" secondItem="hAX-2p-SH3" secondAttribute="bottom" constant="16" id="rke-Zn-j1q"/>
-                            <constraint firstItem="Sl5-0W-TxN" firstAttribute="top" secondItem="ZsD-ox-D4N" secondAttribute="bottom" constant="92" id="tSC-z7-pHK"/>
+                            <constraint firstItem="Sl5-0W-TxN" firstAttribute="top" secondItem="ZsD-ox-D4N" secondAttribute="bottom" constant="16" id="tSC-z7-pHK"/>
                             <constraint firstItem="tMK-PI-oyi" firstAttribute="width" secondItem="7He-Qe-s07" secondAttribute="width" multiplier="0.9" id="tmR-Ix-5xa"/>
                             <constraint firstItem="7He-Qe-s07" firstAttribute="top" secondItem="yf5-gu-vTF" secondAttribute="top" id="wIh-pd-mM8"/>
                         </constraints>
@@ -303,7 +303,9 @@
                     <connections>
                         <outlet property="bestScoreLabel" destination="e7e-Pf-nb6" id="2hR-9x-qVV"/>
                         <outlet property="leaderboardButton" destination="ZsD-ox-D4N" id="SzN-ue-YAY"/>
+                        <outlet property="replayButton" destination="tMK-PI-oyi" id="zZp-EV-5hy"/>
                         <outlet property="scoreLabel" destination="hAX-2p-SH3" id="cBW-0y-lbk"/>
+                        <outlet property="shareButton" destination="Sl5-0W-TxN" id="0Lw-Uk-Hyw"/>
                         <outlet property="wasHighScoreLabel" destination="vn1-oS-sVs" id="Ae1-TX-XWs"/>
                     </connections>
                 </viewController>

@@ -11,14 +11,13 @@
 #import <iAd/iAd.h>
 #import <Parse/Parse.h>
 #import "LeaderBoardViewController.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKShareKit/FBSDKShareKit.h>
 
 @interface ScoreViewController (){
 	ADInterstitialAd *interstitial;
 }
 @property UIImage *screenshot;
 @property NSArray *top10Scores;
+@property NSString *alertViewCancelTitle;
 
 @end
 
@@ -26,7 +25,8 @@
 
 bool hasSaved = NO;
 
-NSString *shareUrl = @"http://www.cantstopthecrop.com";
+
+NSString *shareUrl = @"thewhipgame.com";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,30 +37,30 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 	interstitial.delegate = self;
 	hasSaved = NO;
 	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
-	
+	self.alertViewCancelTitle = @"Cancel";
+	NSLog(@"getTopScoresCalled");
+	[self getTopScores];
 }
 
 
 -(void)viewDidLayoutSubviews{
-	FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
-	photo.image = self.screenshot;
-	photo.userGenerated = YES;
-	photo.caption = [NSString stringWithFormat:@"%@", [NSURL URLWithString:shareUrl]];
-	FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
-	content.photos = @[photo];
-	content.contentURL = [NSURL URLWithString:shareUrl];
-	FBSDKShareButton *shareButton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(
-											   self.leaderboardButton.frame.origin.x,
-											   self.leaderboardButton.frame.origin.y + 76,
-											   self.leaderboardButton.frame.size.width,
-											   self.leaderboardButton.frame.size.height)];
-	shareButton.shareContent = content;
-	shareButton.titleLabel.font = [UIFont fontWithName:@"Game over" size:100];
-	[self.view addSubview:shareButton];
+	NSLog(@"didlayout");
+	UILabel *linklabel = [[UILabel alloc] initWithFrame:CGRectMake(
+								       self.bestScoreLabel.frame.origin.x,
+								       self.bestScoreLabel.frame.origin.y,
+								       self.bestScoreLabel.frame.size.width,
+								       self.bestScoreLabel.frame.size.height)];
+	linklabel.text = shareUrl;
+	linklabel.font = [UIFont fontWithName:self.bestScoreLabel.font.fontName size:self.bestScoreLabel.font.pointSize*0.6];
+	linklabel.textColor = [UIColor whiteColor];
+	linklabel.textAlignment = NSTextAlignmentRight;
+	[self.view addSubview:linklabel];
 	
 	[self takeScreenShot];
-	[self getTopScores];
+	
+	linklabel.hidden = YES;
 }
+
 
 
 
@@ -114,7 +114,7 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 
 -(void)saveToLeaderBoard{
 	if (self.firstTime) {
-		UIAlertView *alertViewChangeName=[[UIAlertView alloc]initWithTitle:@"HIGH SCORE!" message:@"Add your name to post to the leaderboard!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+		UIAlertView *alertViewChangeName=[[UIAlertView alloc]initWithTitle:@"HIGH SCORE!" message:@"Add your name to post to the leaderboard!" delegate:self cancelButtonTitle:self.alertViewCancelTitle otherButtonTitles:@"OK", nil];
 		alertViewChangeName.alertViewStyle=UIAlertViewStylePlainTextInput;
 		[alertViewChangeName show];
 	}
@@ -122,37 +122,43 @@ NSString *shareUrl = @"http://www.cantstopthecrop.com";
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-	NSString *username = [[alertView textFieldAtIndex:0] text];
-	if (!username || username.length == 0) {
+	NSString *buttonTitle=[alertView buttonTitleAtIndex:buttonIndex];
+	if([buttonTitle isEqualToString:self.alertViewCancelTitle]) {
 		return;
-	}
-	PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
-	gameScore[@"score"] = [NSNumber numberWithInt: self.score];
-	gameScore[@"playerName"] = username;
-	[gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		if (succeeded) {
-			// The object has been saved.
-			hasSaved = YES;
-			NSLog(@"has saved");
-			[self getTopScores];
-		} else {
-			// There was a problem, check error.description
-			NSLog(@"%@", error.localizedDescription);
+	}else{
+		NSString *username = [[alertView textFieldAtIndex:0] text];
+		if (!username || username.length == 0) {
+			return;
 		}
-	}];
+		PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+		gameScore[@"score"] = [NSNumber numberWithInt: self.score];
+		gameScore[@"playerName"] = username;
+		[gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+			if (succeeded) {
+				// The object has been saved.
+				hasSaved = YES;
+				NSLog(@"has saved");
+				[self getTopScores];
+			} else {
+				// There was a problem, check error.description
+				NSLog(@"%@", error.localizedDescription);
+			}
+		}];
+	}
 }
 
 
 
 -(void)takeScreenShot{
-	CGSize size =  [[UIScreen mainScreen] bounds].size;
- 
-	// Create the screenshot
-	UIGraphicsBeginImageContext(size);
-	// Put everything in the current view into the screenshot
-	[[self.view layer] renderInContext:UIGraphicsGetCurrentContext()];
-	// Save the current image context info into a UIImage
+	UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0.0);
+	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+	[self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+
+	CGRect rec = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+	[self.view drawViewHierarchyInRect:rec afterScreenUpdates:YES];
+	
 	self.screenshot = UIGraphicsGetImageFromCurrentImageContext();
+	
 	UIGraphicsEndImageContext();
 
 }
